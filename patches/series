@@ -22,3 +22,4 @@
 50-adios-3.3.0.patch            CONFIG_MQ_IOSCHED_ADIOS      mq_adios
 60-kcompressd-0.5-gki.patch     CONFIG_KCOMPRESSD            kcompressd_nodes
 70-le9uo-1.14.patch             -                            sysctl_workingset_protection
+80-droidspaces-sysvipc-kabi.patch   -   -

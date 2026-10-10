@@ -93,3 +93,42 @@ CONFIG_KCOMPRESSD=y
 # CONFIG_LOCALVERSION is NOT set here. build.sh generates it from device.conf's
 #   BRAND for every variant ("-$BRAND-<variant>"), so the brand has exactly one
 #   source of truth and a fragment can never disagree with the package check.
+
+# ── Droidspaces (GKI, kABI-safe; needs patches/80) ─────────────────────────
+# IPC
+CONFIG_SYSVIPC=y
+CONFIG_POSIX_MQUEUE=y
+
+# Namespaces
+CONFIG_IPC_NS=y
+CONFIG_PID_NS=y
+
+# HW access
+CONFIG_DEVTMPFS=y
+
+# Networking (enhanced NAT)
+CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y
+
+# Docker unsafe procfs fix
+CONFIG_USER_NS=y
+
+# IPv6 NAT (NAT66)
+CONFIG_IP6_NF_NAT=y
+CONFIG_IP6_NF_TARGET_MASQUERADE=y
+
+# UFW (REJECT sudah tercover IP_NF_TARGET_REJECT, LOG sudah =y di stock)
+CONFIG_NETFILTER_XT_TARGET_LOG=y
+CONFIG_NETFILTER_XT_MATCH_RECENT=y
+
+# Fail2ban
+CONFIG_IP_SET=y
+CONFIG_IP_SET_HASH_IP=y
+CONFIG_IP_SET_HASH_NET=y
+CONFIG_NETFILTER_XT_SET=y
+
+# tmpfs xattr + posix acl (NixOS)
+CONFIG_TMPFS_POSIX_ACL=y
+CONFIG_TMPFS_XATTR=y
+
+# SENGAJA tidak diaktifkan: CGROUP_PIDS merusak kABI
+# CONFIG_CGROUP_PIDS=y
